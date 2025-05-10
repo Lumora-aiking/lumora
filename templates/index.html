@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}首页 - Lumora 智能点餐系统{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>欢迎使用 Lumora 智能点餐系统</h1>
+    <p>体验AI驱动的智能点餐服务</p>
+    <div class="hero-buttons">
+        <a href="{{ url_for('main.menu') }}" class="btn btn-primary">开始点餐</a>
+        {% if not current_user.is_authenticated %}
+            <a href="{{ url_for('auth.register') }}" class="btn btn-secondary">注册账号</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h3>智能推荐</h3>
+        <p>基于AI的个性化菜品推荐</p>
+    </div>
+    <div class="feature-card">
+        <h3>实时追踪</h3>
+        <p>订单状态实时更新</p>
+    </div>
+    <div class="feature-card">
+        <h3>便捷支付</h3>
+        <p>多种支付方式支持</p>
+    </div>
+</div>
+
+{% if current_user.is_authenticated %}
+<div class="recent-orders">
+    <h2>最近订单</h2>
+    <div id="recent-orders-list">
+        <!-- 最近订单将通过JavaScript动态加载 -->
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    if (document.getElementById('recent-orders-list')) {
+        try {
+            const response = await fetch('/api/orders');
+            const orders = await response.json();
+            const ordersList = document.getElementById('recent-orders-list');
+            ordersList.innerHTML = orders.slice(0, 5).map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <span>订单号: ${order.id}</span>
+                        <span>状态: ${order.status}</span>
+                    </div>
+                    <div class="order-items">
+                        ${order.items.map(item => `
+                            <div class="order-item">
+                                <span>${item.name}</span>
+                                <span>x${item.quantity}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="order-footer">
+                        <span>总价: ¥${order.total_amount}</span>
+                        <span>时间: ${new Date(order.order_time).toLocaleString()}</span>
+                    </div>
+                </div>
+            `).join('');
+        } catch (error) {
+            console.error('获取最近订单失败:', error);
+        }
+    }
+});
+</script>
+{% endblock %} 
