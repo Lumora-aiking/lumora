@@ -7,10 +7,12 @@
   <a href="#"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-blue" alt="Zhihu"></a>
   <a href="#"><img src="https://img.shields.io/github/stars/GitHubDaily/GitHubDaily" alt="GitHub stars"></a>
 </p>
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/04.png)
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/01.png)
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/02.png)
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/03.png)
+
+![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/11.png)
+![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/12.png)
+![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/13.gif)
+![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/14.gif)
+![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/16.gif)
 
 # Lumora.io: Transforming Lives Through Personality Assessment and Gamified Self - Development
 
