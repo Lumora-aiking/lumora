@@ -1,10 +1,13 @@
 <p align="center">
-  <img src="https://github.com/Lumora-aiking/lumora/blob/main/IMG/05.png" width="600" height="600" >
+  <img src="./IMG/05.png" width="600" height="600" >
 </p>
 <p align="center">
    About Lumora leverages Model Context Protocol (MCP) to enhance AI workflows by seamlessly connecting LLMs with external tools, APIs, and data sources.
 </p>
-
+<p align="center">
+  <a href="https://lumora.io/">官网</a>
+  <a href="https://x.com/Lumora_io">推特</a>
+</p>
 ![image](./IMG/11.png)
 ![image](./IMG/12.png)
 ![image](./IMG/13.gif)
