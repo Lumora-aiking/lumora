@@ -56,3 +56,215 @@ We are always looking to connect with like - minded individuals. Whether you're 
 For any inquiries or feedback, you can also contact Lumora Oy at the following address:
 Lumora Oy
 Lapinlahdenkatu 16, 00180, Helsinki, Finland
+
+
+## Table of Contents
+- [Architecture Overview](#architecture-overview)
+- [Multi-Chain Protocol (MCP) Deep Dive](#multi-chain-protocol-mcp-deep-dive)
+- [Developer Tooling](#developer-tooling)
+- [Cryptographic Foundations](#cryptographic-foundations)
+- [Network Operations](#network-operations)
+- [Contributing](#contributing)
+- [Disclaimer](#disclaimer)
+
+---
+
+## Architecture Overview
+
+### System Components
+```mermaid
+flowchart TB
+  subgraph MCP Layer
+    A[MCP Core] --> B[Relayer Network]
+    A --> C[ZK Proof Generator]
+    A --> D[State Synchronizer]
+  end
+  
+  subgraph Chains
+    E[EVM Chains] --> A
+    F[Non-EVM Chains] --> G[Adaptor Layer] --> A
+    H[Oracles] --> A
+  end
+  
+  A --> I[Developer API]
+  I --> J[dApps]
+  I --> K[Enterprise Systems]
+```
+
+---
+
+## Multi-Chain Protocol (MCP) Deep Dive
+
+### 6. Core Modules
+
+#### a) Cross-Chain Messaging
+- **Merklized State Proofs**
+  - Uses sparse Merkle trees for efficient cross-chain verification
+  - Implements IVLS (Inter-Verifiable Logic System) for consensus
+```solidity
+// Hypothetical Proof Verification Logic
+function verifyCrossChainProof(
+    bytes32 root,
+    bytes32[] memory proof,
+    bytes memory message
+) public pure returns (bool) {
+    return MerkleProof.verify(proof, root, keccak256(message));
+}
+```
+
+#### b) State Synchronization
+- **Threshold Signature Scheme (TSS)**
+  - ⅔ + 1 consensus among validators
+  - BLS signature aggregation
+- **Finality Gadgets**
+  - Custom implementation inspired by GRANDPA (Polkadot) and Tendermint
+
+#### c) Gas Abstraction Layer
+```mermaid
+sequenceDiagram
+  User->>MCP: Transaction with any token
+  MCP->>Price Oracle: Fetch conversion rate
+  MCP->>Relayer: Convert & forward
+  Relayer->>Target Chain: Pay gas in native token
+```
+
+---
+
+## Developer Tooling
+
+### 1. Lumora SDK
+```bash
+npm install @lumora/sdk
+```
+
+#### Core Features:
+```typescript
+// Sample TypeScript Implementation
+import { Lumora } from '@lumora/sdk';
+
+const lumora = new Lumora({
+  network: 'mainnet',
+  chains: [1, 137, 43114],
+  auth: 'API_KEY'
+});
+
+// Cross-chain transfer example
+await lumora.bridgeToken({
+  sourceChain: 'ethereum',
+  destinationChain: 'polygon',
+  asset: '0x..',
+  amount: '100',
+  recipient: '0x...'
+});
+```
+
+### 2. CLI Toolkit
+```bash
+lumora-cli deploy-contract \
+  --chain avalanche \
+  --contract MyToken.sol \
+  --params name=TestToken,symbol=TT
+```
+
+### 3. Monitoring Stack
+- **Lumora Explorer**
+  - Real-time message tracking
+  - Gas fee analytics
+  - Health monitoring dashboard
+
+---
+
+## Cryptographic Foundations
+
+### 1. ZK Components
+| Circuit          | Purpose                          | Tech Stack       |
+|------------------|----------------------------------|------------------|
+| zkBridge         | Cross-chain validity proofs      | Circom/PLONK     |
+| zkKYC            | Identity verification            | Nova SC          |
+| zkDEX            | Private swap proofs              | Halo2            |
+
+### 2. Key Management
+- **Multi-Party Computation (MPC)**
+  - GG20 threshold signatures
+  - Distributed key generation (DKG) ceremonies
+  - Hardware Security Module (HSM) integration
+
+---
+
+## Network Operations
+
+### 1. Node Requirements
+```yaml
+# Hypothetical node-config.yml
+version: 2.1
+network:
+  min_stake: 5000 LUM
+  hardware:
+    cpu: 8 cores+
+    memory: 32GB+
+    storage: 1TB NVMe
+chains:
+  supported:
+    - ethereum
+    - polkadot
+    - cosmos
+```
+
+### 2. Governance Model
+- **LUM Token Utilities**
+  - Protocol governance
+  - Gas fee payments
+  - Validator staking
+- **Proposal Types**
+  - Protocol upgrades
+  - Fee parameter changes
+  - Chain support voting
+
+---
+
+## Contributing
+
+### 1. Development Workflow
+```bash
+# Setup Development Environment
+git clone https://github.com/lumora-io/core-contracts.git
+cd core-contracts
+foundryup
+yarn install
+
+# Run Tests
+forge test --match-contract CrossChainTest -vvv
+```
+
+### 2. Audit Guidelines
+- All contracts must:
+  - Pass Slither static analysis
+  - Maintain 90%+ test coverage
+  - Include formal verification specs (K Framework)
+  - Complete third-party audits (minimum 2 firms)
+
+---
+
+## Disclaimer
+🚨 **Critical Notice**: This documentation contains **hypothetical technical specifications** based on industry patterns. The actual Lumora protocol may differ significantly. Always consult:
+
+- Official Whitepaper (if available)
+- Audited Smart Contracts
+- Verified GitHub Repositories
+- Team-Published Materials
+
+Contact for verification:  
+📧 **Email**: security@lumora.io  
+🔗 **Website**: [https://lumora.io](https://lumora.io)  
+
+*Last Updated: {INSERT_DATE}*  
+```
+
+**Recommendations for GitHub Usage:**
+1. Replace `{INSERT_DATE}` with actual last modified date
+2. Add real Shields.io badges when repositories exist
+3. Include CONTRIBUTING.md with detailed code standards
+4. Add SECURITY.md for vulnerability reporting
+5. Verify all technical claims against primary sources
+
+*Note: This template assumes advanced blockchain development knowledge. Adjust terminology based on actual protocol implementation.*
