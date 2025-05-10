@@ -2,7 +2,6 @@
   <img src="https://github.com/Lumora-aiking/lumora/blob/main/IMG/05.png" width="600" height="600" >
 </p>
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/ GitHubDaily-公众号-brightgreen.svg" alt="WeChat"></a>
   <a href="#"><img src="https://img.shields.io/badge/%E6%96%B0%E6%B5%AA-%E5%BE%AE%E5%8D%9A-red" alt="Weibo"></a>
   <a href="#"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-blue" alt="Zhihu"></a>
   <a href="#"><img src="https://img.shields.io/github/stars/GitHubDaily/GitHubDaily" alt="GitHub stars"></a>
