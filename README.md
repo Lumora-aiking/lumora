@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./IMG/logo.jpg" width="300" height="300" >
+  <img src="./IMG/00.jpg" width="300" height="300" >
 </p>
 <p align="center">
    About Lumora leverages Model Context Protocol (MCP) to enhance AI workflows by seamlessly connecting LLMs with external tools, APIs, and data sources.
