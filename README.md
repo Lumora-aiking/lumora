@@ -12,7 +12,6 @@
 ![image](./IMG/11.png)
 ![image](./IMG/12.png)
 ![image](./IMG/13.gif)
-![image](./IMG/14.gif)
 ![image](./IMG/16.gif)
 
 # Lumora.io: Transforming Lives Through Personality Assessment and Gamified Self - Development
