@@ -2,16 +2,14 @@
   <img src="https://github.com/Lumora-aiking/lumora/blob/main/IMG/05.png" width="600" height="600" >
 </p>
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/%E6%96%B0%E6%B5%AA-%E5%BE%AE%E5%8D%9A-red" alt="Weibo"></a>
-  <a href="#"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-blue" alt="Zhihu"></a>
-  <a href="#"><img src="https://img.shields.io/github/stars/GitHubDaily/GitHubDaily" alt="GitHub stars"></a>
+   About Lumora leverages Model Context Protocol (MCP) to enhance AI workflows by seamlessly connecting LLMs with external tools, APIs, and data sources.
 </p>
 
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/11.png)
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/12.png)
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/13.gif)
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/14.gif)
-![image](https://github.com/Lumora-aiking/lumora/blob/main/IMG/16.gif)
+![image](./IMG/11.png)
+![image](./IMG/12.png)
+![image](./IMG/13.gif)
+![image](./IMG/14.gif)
+![image](./IMG/16.gif)
 
 # Lumora.io: Transforming Lives Through Personality Assessment and Gamified Self - Development
 
