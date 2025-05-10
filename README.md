@@ -5,9 +5,10 @@
    About Lumora leverages Model Context Protocol (MCP) to enhance AI workflows by seamlessly connecting LLMs with external tools, APIs, and data sources.
 </p>
 <p align="center">
-  <a href="https://lumora.io/">官网</a>
-  <a href="https://x.com/Lumora_io">推特</a>
+  <a href="https://lumora.io/">Official website</a>
+  <a href="https://x.com/Lumora_io">Twitter</a>
 </p>
+
 ![image](./IMG/11.png)
 ![image](./IMG/12.png)
 ![image](./IMG/13.gif)
